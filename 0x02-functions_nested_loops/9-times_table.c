@@ -3,7 +3,6 @@
 
 /**
  * times_table - returns absolute value
- * @n: this is the number we are checking
  * Return: the magniture or absolute value of the number
  */
 
@@ -16,10 +15,10 @@ void times_table(void)
 	/* go through each row */
 	for (row = 0; row <= 9; row++)
 	{
-	        /* print each column */
+/* print each column */
 
 		int colu = 0;
-		
+
 		for (colu = 0; colu <= 9; colu++)
 		{
 			product = row * colu;
@@ -30,17 +29,25 @@ void times_table(void)
 	}
 	/* _putchar('\n'); */
 }
+
+/**
+ * tableData - returns absolute value
+ * @c: column
+ * @p: product
+ * Return: the magniture or absolute value of the number
+ */
+
 void tableData(int c, int p)
 {
 	int ones = p % 10;
 	int tens = p / 10;
-        /* keep it simple if it starts with 0 */
+/* keep it simple if it starts with 0 */
 	if (c == 0)
 	{
 		_putchar('0');
 	}
 	/* add only one space before the number if two digits */
-	else if (tens > 1)
+	else if (tens >= 1)
 	{
 		_putchar(' ');
 		_putchar('0' + tens);
@@ -55,5 +62,4 @@ void tableData(int c, int p)
 	}
 	if (c != 9)
 		_putchar(',');
-	
 }
