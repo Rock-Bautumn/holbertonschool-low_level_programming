@@ -16,11 +16,12 @@ void jack_bauer(void)
 
 		for (m1 = 0; m1 <= 59; m1++)
 		{
-			if (m1 < 10)
+			if (h1 < 10)
 				printf("0%d", h1);
 			else
 				printf("%d", h1);
-			if (h1 < 10)
+			/* printf("  h1 and m1 is "); */
+			if (m1 < 10)
 				printf(":0%d\n", m1);
 			else
 				printf(":%d\n", m1);
