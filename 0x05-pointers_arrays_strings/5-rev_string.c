@@ -21,7 +21,7 @@ void rev_string(char *str)
 		rc++;
 	}
 	myStr--;
-	while (offset < rc/2)
+	while (offset < rc / 2)
 	{
 		hold = *(str + offset);
 		*(str + offset) = *myStr;
