@@ -1,0 +1,28 @@
+#include "main.h"
+#include <stdio.h>
+/**
+ * rev_string - reverses a string
+ *
+ * @str: the string we are printing the characters of
+ * Return: void
+ */
+
+void rev_string(char *str)
+{
+	char *myStr = str;
+	int rc = 0;
+
+	while (*myStr != '\0')
+	{
+		myStr++;
+		rc++;
+	}
+	myStr--;
+	while (*myStr != '\0')
+	{
+		*(str + rc) = *myStr;
+		myStr--;
+		rc--;
+	}
+	
+}
