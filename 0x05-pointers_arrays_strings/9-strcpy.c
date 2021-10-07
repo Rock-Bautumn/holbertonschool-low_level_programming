@@ -19,6 +19,8 @@ char *_strcpy(char *dest, char *src)
 		*(dest++) = *(src++);
 		goback++;
 	}
+	*(dest++) = 0;
+	goback++;
 	while (goback > 0)
 	{
 		goback--;
