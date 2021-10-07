@@ -1,4 +1,5 @@
 #include "main.h"
+#include <stdio.h>
 
 /**
  * _strcpy - copies an array from src to dest
@@ -11,11 +12,17 @@
 char *_strcpy(char *dest, char *src)
 {
 
-	while (*src)
+	int goback = 0;
+
+	while (*src != '\0')
 	{
 		*(dest++) = *(src++);
+		goback++;
 	}
-	*dest = '\0';
-
+	while (goback > 0)
+	{
+		goback--;
+		dest--;
+	}
 	return (dest);
 }
