@@ -9,23 +9,26 @@
  */
 char *_strcat(char *dest, char *src)
 {
-
 	int goback = 0;
-	while (*dest)
-	{
-		dest++;
-	}
-	while (*src)
-	{
-		*dest = *src;
-		src++;
-	}
-	*dest = 0;
-	while (goback > 0)
-	{
-		goback--;
-		dest--;
-	}
 
+	/* printf("start address: %p\n",(void *)&dest); */
+	   /*   printf("%c", *dest); */
+	while (*dest != '\0')
+	{
+		/* printf("dest loop reads %c\n", *dest); */
+		dest++;
+		/*printf("dest address:%p\n",(void *) &dest); */
+
+		goback++;
+	}
+	while (*src != '\0')
+	{
+		*(dest++) = *(src++);
+		/* printf("src src = %c\n", *src); */
+/* printf("src dest = %c\n", *dest); */
+		goback++;
+	}
+	dest = dest - goback;
+	/* printf("end address:%p\n",(void *) &dest); */
 	return (dest);
 }
