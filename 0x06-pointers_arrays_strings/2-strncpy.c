@@ -2,7 +2,7 @@
 #include <stdio.h>
 
 /**
- * _strncpy - concatenate two strings together, adding up to n chars from
+ * _strncpy - copies string from src to dest, adding up to n chars from
  * the source to the dest
  * @dest: the destination string
  * @src: the string part we are adding to dest
