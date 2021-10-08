@@ -10,6 +10,7 @@
 char *_strcat(char *dest, char *src)
 {
 
+	int goback = 0;
 	while (*dest)
 	{
 		dest++;
@@ -20,5 +21,11 @@ char *_strcat(char *dest, char *src)
 		src++;
 	}
 	*dest = 0;
+	while (goback > 0)
+	{
+		goback--;
+		dest--;
+	}
+
 	return (dest);
 }
