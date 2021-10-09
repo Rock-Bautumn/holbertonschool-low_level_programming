@@ -10,5 +10,9 @@ char *string_toupper(char *);
 char *cap_string(char *);
 char *leet(char *);
 char *rot13(char *);
+void print_number(int n);
+void print_number_upper_half(int n);
+void print_number_lower_half(int n, int needzeros);
+int _putchar(char);
 
 #endif /* MAIN_H */
