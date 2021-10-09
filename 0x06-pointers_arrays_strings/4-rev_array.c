@@ -13,10 +13,11 @@ void reverse_array(int *a, int n)
 	int *copy = a;
 	int i = 0;
 	int hold;
+
 	while (i < n / 2)
 	{
 		hold = *(a + i);
-	        *(a + i) = *(copy + (n - i - 1));
+		*(a + i) = *(copy + (n - i - 1));
 		*(copy + (n - i)) = hold;
 		i++;
 	}
