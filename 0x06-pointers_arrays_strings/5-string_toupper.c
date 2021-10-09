@@ -7,12 +7,13 @@
  * Return: the uppercase string
  */
 
-char *string_toupper(char * str)
+char *string_toupper(char *str)
 {
 /* a 97 , z = 122 */
 /* A 65 , Z = 90 */
 	/* a - A = 32 */
 	int x = 0;
+
 	while (*(str + x) != '\0')
 	{
 		if (*(str + x) >= 97 && *(str + x) <= 122)
