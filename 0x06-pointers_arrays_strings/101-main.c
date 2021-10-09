@@ -9,6 +9,15 @@ int main(void)
 {
     print_number(1234567890);
     _putchar('\n');
+    print_number(2147483647);
+    _putchar('\n');
+    print_number('Z');
+    _putchar('\n');
+    print_number(-2101234567);
+    _putchar('\n');
+    print_number(98);
+
+    _putchar('\n');
     print_number(98);
     _putchar('\n');
     print_number(402);
