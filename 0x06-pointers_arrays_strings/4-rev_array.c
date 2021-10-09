@@ -18,7 +18,7 @@ void reverse_array(int *a, int n)
 	{
 		hold = *(a + i);
 		*(a + i) = *(copy + (n - i - 1));
-		*(copy + (n - i)) = hold;
+		*(copy + (n - i - 1)) = hold;
 		i++;
 	}
 }
