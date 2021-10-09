@@ -36,6 +36,8 @@ char *cap_string(char *str)
 			capthis = 1;
 		if ((thischar == 123) || (thischar == 125) || (thischar == 10))
 			capthis = 1;
+		if (thischar == 9)
+			capthis = 1;
 
 		x++;
 	}
