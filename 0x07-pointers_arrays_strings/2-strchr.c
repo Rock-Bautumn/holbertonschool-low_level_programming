@@ -25,5 +25,5 @@ char *_strchr(char *s, char c)
 		x++;
 		match++;
 	}
-	return (0);
+	return (match);
 }
