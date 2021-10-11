@@ -13,9 +13,14 @@ int main(void)
 
     f = _strchr(s, 'l');
 
+    s = "boingboing";
+
+    f = _strchr(s, 'l');
     if (f != NULL)
     {
-        printf("%s\n", f);
+        printf("not null, got: %s\n", f);
     }
+    else
+	    printf("it was null!\n");
     return (0);
 }
