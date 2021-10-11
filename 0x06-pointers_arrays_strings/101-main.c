@@ -1,32 +1,24 @@
 #include "holberton.h"
+#include <stdio.h>
 
 /**
  * main - check the code for Holberton School students.
  *
  * Return: Always 0.
  */
-int main(void)
+int main(int argc, int *argv[])
 {
-    print_number(1234567890);
-    _putchar('\n');
-    print_number(2147483647);
-    _putchar('\n');
-    print_number('Z');
-    _putchar('\n');
-    print_number(-2101234567);
-    _putchar('\n');
-    print_number(98);
 
-    _putchar('\n');
-    print_number(98);
-    _putchar('\n');
-    print_number(402);
-    _putchar('\n');
-    print_number(1024);
-    _putchar('\n');
-    print_number(0);
-    _putchar('\n');
-    print_number(-98);
+	int *intcast;
+	intcast = &argv[1];
+	print_number(*intcast);
+	if (argc==1)
+        printf("\nNo Extra Command Line Argument Passed Other Than Program Name\n");
+    if (argc >= 2)
+    {
+	    printf("%d", argv[1]);
+        print_number(*intcast);
+    }
     _putchar('\n');
     return (0);
 }
