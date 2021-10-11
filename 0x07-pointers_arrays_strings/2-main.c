@@ -8,19 +8,27 @@
  */
 int main(void)
 {
-    char *s = "hello";
+    char *s = "1234567leftover text here8910";
     char *f;
 
-    f = _strchr(s, 'l');
+    char *a = "this is going to be nu11oneones, this wont print";
+    char *b;
 
-    /*
-      s = "boingboing";
 
-    f = _strchr(s, 'l');
-    */
+    f = _strchr(s, '7');
+
+
+    b = _strchr(a, 'l');
+
     if (f != NULL)
     {
-        printf("not null, got: %s\n", f);
+        printf("f not null, got: %s!\n", f);
+    }
+    else
+	    printf("it was null!\n");
+    if (b != NULL)
+    {
+        printf("b not null, got: %s!\n", f);
     }
     else
 	    printf("it was null!\n");
