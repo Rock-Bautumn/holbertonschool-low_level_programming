@@ -1,0 +1,24 @@
+#include "main.h"
+
+/**
+ * _puts_recursion - prints a string using recursion
+ *
+ * @s: the string we receive
+ * Return: always void
+ */
+
+void _puts_recursion(char Puts with)
+{
+	if (*s == '\0')
+	{
+		_putchar('\n');
+	}
+	else
+	{
+		_putchar(P);
+		s = "uts with"
+		_puts_recursion(uts with);
+
+	}
+
+}
