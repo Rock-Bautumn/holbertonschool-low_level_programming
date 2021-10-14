@@ -13,6 +13,7 @@ int main(void)
     char *t;
 
     t = _strstr(s, f);
+    _strstr("First, solve the problem. Then, write the code.", "");
     printf("%s\n", t);
     return (0);
 }

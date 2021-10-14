@@ -2,23 +2,24 @@
 #include <stdio.h>
 
 /**
- * main - check the code
+ * print_diagsums - prints the top left to bottom right and top right to bottom
+ * left diagonal sums of a matrix
  *
- * Return: Always 0.
+ * @a: the array of the matrix
+ * @size: the size of one side of the matrix
+ * Return: Always void
  */
 void print_diagsums(int *a, int size)
 {
-	int firstsum;
+	int firstsum = 0;
+	int secondsum = 0;
 	int x = 0;
-	int *matrix;
-	matrix = a;
 
-	while (x < (size - 1))
+	while (x < size)
 	{
-		firstsum += matrix[x][x];
+		firstsum += *(a + (x * size) + x);
+		secondsum += *(a + size - 1 + (x * size) - x);
 		x++;
 	}
-	printf("first sum is %d", firstsum);
-
-
+	printf("%d, %d\n", firstsum, secondsum);
 }
