@@ -11,36 +11,38 @@
  * Return: number of bytes in the initial segment that consist of only bytes
  * from accept
  */
-char *_strstr(char *s, char *accept)
+char *_strstr(char *haystack, char *needle)
 {
 	int x;
+	int cw;
 
-	while (_strlen(s) > _strlen(accept))
+	if (*needle == '\0')
+		{
+			return (haystack);
+		}
+
+	for (x = 0; haystack[x]; x++)
 	{
-		for (x = 0; x < _strlen(accept) - 1; x++)
-			if (s[x] == accept[x])
-				printf("made it here");
-
-		s++;
+		if (haystack[x] == needle[0])
+		{
+			for (cw = 0; needle[cw]; cw++)
+			{
+				if (haystack[x + cw] == '\0')
+				{
+					break;
+				}
+				if (needle[cw] == haystack[x + cw])
+				{
+					continue;
+				}
+				break;
+			}
+			if (needle[cw] == '\0')
+			{
+				haystack = haystack + x;
+				return (haystack);
+			}
+		}
 	}
 	return (0);
-}
-
-/**
- * checksubstr - checks if the string we are given
-
- */
-
-int _strlen(char *s)
-{
-	int length;
-
-	length = 0;
-
-	while (*s != '\0')
-	{
-		s++;
-		length++;
-	}
-	return (length);
 }
