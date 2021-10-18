@@ -8,14 +8,14 @@
  * Return: always 0;
  */
 
-int main(int argc, __attribute__((unused)) char *argv[])
+int main(int argc, char *argv[])
 {
 
 	int x = 0;
 
 	while (x < argc)
 	{
-	        printf("%s\n", argv[x]);
+		printf("%s\n", argv[x]);
 		x++;
 	}
 	return (0);
