@@ -32,13 +32,14 @@ int _strlen(char *s)
 char *_strdup(char *str)
 {
 	int x = 0;
-	int size = _strlen(str);
+	int size;
 	char *newString;
 
 	if (str == NULL)
 		return (NULL);
 
-	if (size < 1)
+	size  = _strlen(str);
+	if (size == 0)
 		return (NULL);
 	newString = malloc(size * sizeof(char) + 1);
 
