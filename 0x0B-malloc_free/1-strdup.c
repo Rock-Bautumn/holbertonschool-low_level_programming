@@ -32,7 +32,7 @@ int _strlen(char *s)
 char *_strdup(char *str)
 {
 	int x = 0;
-	int size;
+	int size = 0;
 	char *newString;
 
 	if (str == NULL)
@@ -43,10 +43,6 @@ char *_strdup(char *str)
 
 	if (newString == NULL)
 		return (NULL);
-	if (size == 0)
-	{
-		return (NULL);
-	}
 
 	while (x < size)
 	{
