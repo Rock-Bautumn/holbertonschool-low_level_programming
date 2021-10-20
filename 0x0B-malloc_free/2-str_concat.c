@@ -23,13 +23,13 @@ int _strlen(char *s)
 }
 
 /**
- * _strdup - Returns a pointer to a newly allocated space in memory, which
- * contains a copy of the string given as a parameter.
- * @str: the string to copy
- * Return: the address of the copied string, NULL if failed
+ * str_concat - Returns a pointer to the concatenated string of s1+s2
+ * @s1: the first part of the string to copy
+ * @s2: the second part of the string to concatenate
+ * Return: the address of the concatenated string, NULL if failed
  */
 
-char *_strdup(char *s1, char *s2)
+char *str_concat(char *s1, char *s2)
 {
 	int x = 0;
 	int s1size = 0;
@@ -37,10 +37,9 @@ char *_strdup(char *s1, char *s2)
 	int size = 0;
 	char *newString;
 
-	s1size = _strlen(s1);
-	s2size = _strlen(s2);
+	s1size  = _strlen(s1);
+	s2size  = _strlen(s2);
 	size = s1size + s2size;
-
 	newString = malloc(size * sizeof(char) + 1);
 
 	if (newString == NULL)
@@ -53,7 +52,7 @@ char *_strdup(char *s1, char *s2)
 	}
 	while (x < size)
 	{
-		*(newString + x) = *(s2 + x);
+		*(newString + x) = *(s2 + x - s1size);
 		x++;
 	}
 	*(newString + x) = '\0';
