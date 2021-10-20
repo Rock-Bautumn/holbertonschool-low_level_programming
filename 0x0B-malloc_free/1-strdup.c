@@ -39,12 +39,14 @@ char *_strdup(char *str)
 		return (NULL);
 
 	size  = _strlen(str);
-	if (size == 0 || size == '\0')
-		return (NULL);
 	newString = malloc(size * sizeof(char) + 1);
 
 	if (newString == NULL)
 		return (NULL);
+	if (size == 0)
+	{
+		return (NULL);
+	}
 
 	while (x < size)
 	{
