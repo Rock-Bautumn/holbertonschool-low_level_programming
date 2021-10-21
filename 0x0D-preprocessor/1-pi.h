@@ -1,12 +1,6 @@
-#ifndef MAIN_H
-#define MAIN_H
+#ifndef PI_H
+#define PI_H
 
-int _putchar(char c);
-char *create_array(unsigned int size, char c);
-int _strlen(char *);
-char *_strdup(char *str);
-char *str_concat(char *s1, char *s2);
-int **alloc_grid(int width, int height);
-void free_grid(int **grid, int height);
+#define PI 3.14159265359
 
-#endif /* MAIN_H */
+#endif /* PI_H */
