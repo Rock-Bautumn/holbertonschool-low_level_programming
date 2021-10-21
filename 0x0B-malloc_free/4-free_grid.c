@@ -3,8 +3,7 @@
 #include "main.h"
 
 /**
- * free_grid - Returns a pointer to a grid created of width x height
- * dimensions
+ * free_grid - Frees the memory used for a grid
  * @height: the number of rows (y axis)
  * @grid: the grid we are freeing from memory
  * Return: always void
