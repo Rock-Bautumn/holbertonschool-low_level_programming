@@ -1,12 +1,6 @@
-#ifndef MAIN_H
-#define MAIN_H
+#ifndef SUM_H
+#define SUM_H
 
-int _putchar(char c);
-char *create_array(unsigned int size, char c);
-int _strlen(char *);
-char *_strdup(char *str);
-char *str_concat(char *s1, char *s2);
-int **alloc_grid(int width, int height);
-void free_grid(int **grid, int height);
+#define SUM(x,y) ((x) + (y))
 
-#endif /* MAIN_H */
+#endif /* SUM_H */
