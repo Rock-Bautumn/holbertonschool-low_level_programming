@@ -57,11 +57,12 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 		x++;
 	}
 	x = 0;
-	while (x <= s2len)
+	s2len = dynsize - s1len;
+	while (x < s2len)
 	{
 		*(newString + s1len + x) = *(s2 + x);
 		x++;
 	}
-	*(newString + x) = '\0';
+	*(newString + s1len + x) = '\0';
 	return (newString);
 }
