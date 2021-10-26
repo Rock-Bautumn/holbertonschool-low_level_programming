@@ -23,11 +23,9 @@ int *array_range(int min, int max)
 	newArray = malloc(sizeof(int) * rangesize);
 	if (newArray == NULL)
 		return (NULL);
-	while (i <= rangesize)
+	for (x = min; x <= max; i++, x++)
 	{
 		*(newArray + i) = x;
-		i++;
-		x++;
 	}
 	return (newArray);
 }
