@@ -16,6 +16,8 @@ void *_calloc(unsigned int nmemb, unsigned int size)
 	if (!nmemb || !size || nmemb == 0 || size == 0)
 		return (NULL);
 	newArray = malloc(nmemb * size);
+	if (!newArray)
+		return (NULL);
 	for (; x < (nmemb * size); x++)
 	{
 		*(newArray + x) = 0;
