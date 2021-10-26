@@ -55,7 +55,7 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 
 	newString = malloc(sizeof(char) * dynsize + 1);
 
-	if (!newString)
+	if (newString == NULL)
 		return (NULL);
 	while (x < s1len)
 	{
