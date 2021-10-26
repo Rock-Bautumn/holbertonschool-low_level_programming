@@ -42,13 +42,11 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	char *newString;
 
 	if (!s1)
-		s1len = 0;
-	else
-		s1len = _strlen(s1);
+		s1 = "";
 	if (!s2)
-		s2len = 0;
-	else
-		s2len = _strlen(s2);
+		s2 = "";
+	s1len = _strlen(s1);
+	s2len = _strlen(s2);
 
 	if (n >= s2len)
 		dynsize = s1len + s2len;
