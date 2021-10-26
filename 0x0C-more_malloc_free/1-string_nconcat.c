@@ -48,7 +48,7 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	s1len = _strlen(s1);
 	s2len = _strlen(s2);
 
-	if (n >= s2len)
+	if (n > s2len)
 		dynsize = s1len + s2len;
 	else
 		dynsize = s1len + n;
@@ -69,6 +69,7 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 		*(newString + s1len + x) = *(s2 + x);
 		x++;
 	}
-	*(newString + s1len + x) = '\0';
+
+	*(newString + dynsize + 1) = '\0';
 	return (newString);
 }
