@@ -35,12 +35,20 @@ int _strlen(char *s)
 
 char *string_nconcat(char *s1, char *s2, unsigned int n)
 {
-	unsigned int s1len = _strlen(s1);
-	unsigned int s2len = _strlen(s2);
+	unsigned int s1len;
+	unsigned int s2len;
 	unsigned int dynsize = 0;
 	unsigned int x = 0;
 	char *newString;
 
+	if (!s1)
+		s1len = 0;
+	else
+		s1len = _strlen(s1);
+	if (!s2)
+		s2len = 0;
+	else
+		s2len = _strlen(s2);
 
 	if (n >= s2len)
 		dynsize = s1len + s2len;
@@ -51,7 +59,7 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 
 	if (!newString)
 		return (NULL);
-	while (x <= s1len)
+	while (x < s1len)
 	{
 		*(newString + x) = *(s1 + x);
 		x++;

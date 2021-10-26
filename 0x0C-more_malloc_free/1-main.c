@@ -11,7 +11,7 @@ int main(void)
 {
     char *concat;
 
-    concat = string_nconcat("Best ", "12345678", 6);
+    concat = string_nconcat("dachshund ", "dog butts", 8);
     printf("%s\n", concat);
     free(concat);
     return (0);
