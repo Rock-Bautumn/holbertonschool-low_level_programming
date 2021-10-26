@@ -13,7 +13,7 @@ int main(void)
 
 /*    my_dog.name = "Poppy"; */
     my_dog.age = 42.5;
-    /* my_dog.owner = "Ronald Mcdonald"; */
+    /* my_dog.owner = NULL; */
     print_dog(&my_dog);
     return (0);
 }
