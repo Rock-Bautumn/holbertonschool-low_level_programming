@@ -31,7 +31,7 @@ int _strlen(char *s)
 
 char *_strdup(char *str)
 {
-	int x = 0;
+	unsigned int x = 0;
 	unsigned int size = 0;
 	char *newString;
 
