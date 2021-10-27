@@ -1,7 +1,6 @@
-#include <stdio.h>
 #include <stdlib.h>
 #include "dog.h"
-
+#include <string.h>
 /**
  * _strlen - returns the length of a string
  *
@@ -38,7 +37,9 @@ char *_strdup(char *str)
 	if (str == NULL)
 		return (NULL);
 
-	size  = _strlen(str);
+	while (*(str + size))
+		size++;
+
 	newString = malloc(size * sizeof(char) + 1);
 
 	if (newString == NULL)
@@ -61,6 +62,7 @@ char *_strdup(char *str)
  * @name: name of the dog
  * @age: age of the dog
  * @owner: the name of the dog's owner
+ * Return: returns a pointer to the new dog struct
  */
 dog_t *new_dog(char *name, float age, char *owner)
 {
