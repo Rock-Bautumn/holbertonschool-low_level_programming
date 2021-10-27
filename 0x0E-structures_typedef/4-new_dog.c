@@ -56,6 +56,12 @@ char *_strdup(char *str)
 	return (newString);
 }
 
+/**
+ * new_dog - this creates a struct with the data to make a dog
+ * @name: name of the dog
+ * @age: age of the dog
+ * @owner: the name of the dog's owner
+ */
 dog_t *new_dog(char *name, float age, char *owner)
 {
 
