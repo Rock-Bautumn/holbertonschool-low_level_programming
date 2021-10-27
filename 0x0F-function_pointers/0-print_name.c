@@ -9,6 +9,9 @@
 
 void print_name(char *name, void (*f)(char *))
 {
+/* do nothing if we don't have both the name and the function */
+	if (!name || !f)
+		return;
 
 	f(name);
 
