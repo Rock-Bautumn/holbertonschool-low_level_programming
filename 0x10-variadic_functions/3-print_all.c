@@ -2,7 +2,6 @@
 #include <stdlib.h>
 #include "variadic_functions.h"
 #include <stdarg.h>
-#include <string.h>
 
 /**
  * print_all - Prints all of the things, using format as its guide
