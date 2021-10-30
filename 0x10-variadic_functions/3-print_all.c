@@ -14,10 +14,11 @@ void print_all(const char *format, ...)
 	unsigned int i = 0;
 	char *thisStr;
 	int printSeparator = 0;
+
 	va_list args;
 
 	va_start(args, format);
-	while (format && format[i])
+	while (format && format[i] != '\0')
 	{
 		printSeparator = 0;
 		switch (format[i])
@@ -43,10 +44,11 @@ void print_all(const char *format, ...)
 				printf("%s", thisStr);
 			break;
 		}
-		if (format[i + 1] && printSeparator == 1)
+		if (format[i + 1] != '\0' && printSeparator == 1)
 			printf(", ");
 		i++;
 	}
-	printf("\n");
 	va_end(args);
+	printf("\n");
+
 }
