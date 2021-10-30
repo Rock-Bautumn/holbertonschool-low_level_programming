@@ -18,7 +18,7 @@ void print_all(const char *format, ...)
 	va_list args;
 
 	va_start(args, format);
-	while (format[i])
+	while (format && format[i])
 	{
 		printSeparator = 0;
 		switch (format[i])
@@ -42,6 +42,7 @@ void print_all(const char *format, ...)
 				printf("(nil)");
 			else
 				printf("%s", thisStr);
+			break;
 		}
 		if (format[i + 1] && printSeparator == 1)
 			printf(", ");
