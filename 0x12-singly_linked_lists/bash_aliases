@@ -1,0 +1,2 @@
+ls -1 *.c | grep -v main.c | xargs betty
+alias bettydir='ls -1 *.c | grep -v main.c | xargs betty'

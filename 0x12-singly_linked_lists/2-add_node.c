@@ -5,7 +5,8 @@
 
 /**
  * add_node - add a node to the beginning of a list_t linked list
- * @h: head node of the linked list
+ * @head: head node of the linked list
+ * @str: the string data
  * Return: the address of the new element, or NULL if failed
  */
 list_t *add_node(list_t **head, const char *str)
