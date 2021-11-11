@@ -16,6 +16,8 @@ int pop_listint(listint_t **head)
 
 	if (!head)
 		return (0);
+	if (!(*head)->n)
+		return (0);
 	thisNode = *head;
 	nextNode = thisNode->next;
 	popdata = thisNode->n;
