@@ -4,10 +4,9 @@
 #include <string.h>
 
 /**
- * insert_nodeint_at_index - inserts node into index pos in listint_t list
+ * delete_nodeint_at_index - deletes node from index pos in listint_t list
  * @idx: node of the linked list to insert
  * @head: the head of the linked list
- * @n: the number to store
  * Return: the address of the new element, or NULL if failed
  */
 int delete_nodeint_at_index(listint_t **head, unsigned int index)
