@@ -4,6 +4,7 @@
 
 /**
  * get_nodeint_at_index - return the addr of nth node of a lisint_t list
+ * @head: the address of the first node
  * @index: index of the node we want, starting at 0
  * Return: the address of the indexth node
  */
@@ -19,7 +20,7 @@ listint_t *get_nodeint_at_index(listint_t *head, unsigned int index)
 	{
 		if (i == index)
 			return (thisNode);
-	        i++;
+		i++;
 		thisNode = thisNode->next;
 	}
 	if (i < index)
