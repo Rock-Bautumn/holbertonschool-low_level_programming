@@ -5,7 +5,7 @@
 
 /**
  * delete_nodeint_at_index - deletes node from index pos in listint_t list
- * @idx: node of the linked list to insert
+ * @index: node of the linked list to insert
  * @head: the head of the linked list
  * Return: the address of the new element, or NULL if failed
  */
