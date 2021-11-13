@@ -11,5 +11,7 @@ unsigned int flip_bits(unsigned long int n, unsigned long int m)
 {
 	unsigned int x = 98;
 
+	(void) n;
+	(void) index;
 	return (x);
 }
