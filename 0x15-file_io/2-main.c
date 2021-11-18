@@ -15,6 +15,8 @@ int main(int ac, char **av)
         exit(1);
     }
     res = append_text_to_file(av[1], av[2]);
+    printf("-> %i)\nBest school:\n", res);
+    append_text_to_file("textfile_0", "Best School !");
     printf("-> %i)\n", res);
     return (0);
 }

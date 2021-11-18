@@ -20,17 +20,17 @@ int append_text_to_file(const char *filename, char *text_content)
 		return (-1);
 
 	if (!text_content)
+		text_content = "";
+
+	while (*text_content != '\0')
 	{
-		while (*text_content != '\0')
+		result = write(filedesc, text_content, 1);
+		if (result == -1)
 		{
-			result = write(filedesc, text_content, 1);
-			if (result == -1)
-			{
-				close(filedesc);
-				return (-1);
-			}
-			text_content++;
+			close(filedesc);
+			return (-1);
 		}
+		text_content++;
 	}
 	close(filedesc);
 	return (1);
