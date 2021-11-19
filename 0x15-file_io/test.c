@@ -9,10 +9,11 @@
  */
 int main(int ac, char **av)
 {
+	long mylong = 32;
+
 	(void) ac;
 	(void) av;
-	int x = 7;
 
-	printf("strlen %lu\n", strlen(NULL));
+	printf("matching test = %ld\n", mylong);
 	return (0);
 }
