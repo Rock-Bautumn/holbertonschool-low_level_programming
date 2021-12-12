@@ -57,6 +57,7 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 				free_ht_node(new_node);
 				return (1);
 			}
+			this_node = this_node->next;
 		}
 		this_node->next = prev_head;
 		ht->array[this_key_index] = new_node;
