@@ -10,42 +10,43 @@
 
 int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 {
-	unsigned long int index = key_index((const unsigned char *)key, ht->size);
-	hash_node_t *new_element, *element = ht->array[index];
+	hash_node_t *node = NULL, *oldhead, *tmp;
+	unsigned long int hash_index;
 
-	if (key == NULL)
+	if (key == NULL || value == NULL)
 		return (0);
-
-	new_element = malloc(sizeof(hash_node_t) * 1);
-
-	if (!new_element)
+	if (strlen(key) < 1)
 		return (0);
-	new_element->key = strdup(key);
-	new_element->value = strdup(value);
-	new_element->next = NULL;
+	if (ht == NULL)
+		return (0);
+	node = malloc(sizeof(hash_node_t));
+	if (!node)
+		return (0);
+	node->key = strdup(key);
+	node->value = strdup(value);
+	node->next = NULL;
 
-	if (element == NULL)
-	{
-		ht->array[index] = new_element;
-		return (1);
-	}
+	hash_index = key_index((const unsigned char *)key, ht->size);
+
+	/* check if value is NULL. if not, make linked list */
+	if (ht->array[hash_index] == NULL)
+		ht->array[hash_index] = node;
 	else
 	{
-		while (element)
+		oldhead = ht->array[hash_index];
+		for (tmp = oldhead; tmp != NULL; tmp = tmp->next)
 		{
-			if ((strcmp(ht->array[index]->key, new_element->key)) == 0)
+			if (strcmp(key, tmp->key) == 0)
 			{
-				free(element->value);
-				element->value = strdup(value);
-				free(new_element->key);
-				free(new_element->value);
-				free(new_element);
+				free(tmp->value);
+				tmp->value = strdup(value);
+				free(node->value);
+				free(node);
 				return (1);
 			}
-			element = element->next;
 		}
-	new_element->next = ht->array[index];
-	ht->array[index] = new_element;
+		node->next = oldhead;
+		ht->array[hash_index] = node;
 	}
 	return (1);
 }
