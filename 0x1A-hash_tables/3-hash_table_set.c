@@ -32,17 +32,18 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	new_node = malloc(sizeof(hash_node_t));
 	if (new_node == NULL)
 		return (0);
-
 	new_node->key = strdup(key);
 	new_node->value = strdup(value);
 	new_node->next = NULL;
-
 	/* Save the key index in memory so we don't waste time with calls */
 	this_key_index = key_index((const unsigned char *) key, ht->size);
 	this_node = ht->array[this_key_index];
 	/* Save the node in the spot if it's free, otherwise insert node */
-	if (ht->array[this_key_index] == NULL)
+	if (this_node == NULL)
+	{
 		ht->array[this_key_index] = new_node;
+		return (1);
+	}
 	else
 	{
 		while (this_node != NULL)
@@ -50,8 +51,9 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 			if (strcmp(this_node->key, key) == 0)
 			{
 				free(this_node->value);
-				free(new_node->key);
 				this_node->value = new_node->value;
+				free(new_node->value);
+				free(new_node->key);
 				free(new_node);
 				return (1);
 			}
