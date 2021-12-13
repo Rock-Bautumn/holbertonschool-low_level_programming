@@ -16,6 +16,8 @@ int main(void)
 
 	ht = hash_table_create(1024);
 	hash_table_set(ht, "stylist", "subgenera");
+	hash_table_set(ht, "subgenera", "stylist");
+	
 	printf("Key index of stylist is %lu\n", key_index((const unsigned char *)"stylist", 1024));
 	printf("Key index of subgenera is %lu\n", key_index((const unsigned char *)"subgenera", 1024));
 

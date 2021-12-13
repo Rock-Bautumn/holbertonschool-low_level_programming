@@ -3,7 +3,7 @@
 /**
  * hash_table_get - Gets a value from a hash table using a key
  * @ht: The hash table
- * @key: They key
+ * @key: The key
  * Return: The value of the key, aka the datum, or NULL if failed
  */
 
