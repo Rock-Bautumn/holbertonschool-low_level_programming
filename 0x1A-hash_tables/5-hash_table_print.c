@@ -23,13 +23,16 @@ void hash_table_print(const hash_table_t *ht)
 		t_n = ht->array[i];
 		for (; t_n; t_n = t_n->next)
 		{
-			if (did_print == 0)
+			if (t_n->key != NULL)
 			{
-				printf("'%s': '%s'", t_n->key, t_n->value);
-				did_print = 1;
+				if (did_print == 0)
+				{
+					printf("'%s': '%s'", t_n->key, t_n->value);
+					did_print = 1;
+				}
+				else
+					printf(", '%s': '%s'", t_n->key, t_n->value);
 			}
-			else
-				printf(", '%s': '%s'", t_n->key, t_n->value);
 		}
 		i++;
 	}
