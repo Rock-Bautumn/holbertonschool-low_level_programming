@@ -5,13 +5,10 @@
  * @ht: The hash table
  * Return: void
  */
-
 void hash_table_delete(hash_table_t *ht)
 {
-
 	unsigned long int i;
-	hash_node_t *this_node;
-	hash_node_t *free_node;
+	hash_node_t *this_node, *free_node;
 
 	if (!ht)
 		return;
@@ -30,5 +27,4 @@ void hash_table_delete(hash_table_t *ht)
 	}
 	free(ht->array);
 	free(ht);
-	return;
 }
