@@ -23,9 +23,8 @@ void free_ht_node(hash_node_t *hash_node)
 
 int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 {
-	hash_node_t *new_node = NULL;
+	hash_node_t *new_node = NULL, *this_node = NULL;
 	hash_node_t *prev_head = NULL;
-	hash_node_t *this_node = NULL;
 	unsigned long int this_key_index;
 
 	if (!ht || !key || strlen(key) < 1)
@@ -53,8 +52,9 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 			if (strcmp(this_node->key, key) == 0)
 			{
 				free(this_node->value);
+				free(new_node->key);
 				this_node->value = strdup(value);
-				free_ht_node(new_node);
+				free(new_node);
 				return (1);
 			}
 			this_node = this_node->next;
