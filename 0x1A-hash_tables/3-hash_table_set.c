@@ -1,19 +1,6 @@
 #include "hash_tables.h"
 
 /**
- * free_ht_node - Frees a hash_node_t from memory
- * @hash_node: - The hash_node_t to deallocate
- * Return: void
- */
-
-void free_ht_node(hash_node_t *hash_node)
-{
-	free(hash_node->key);
-	free(hash_node->value);
-	free(hash_node);
-}
-
-/**
  * hash_table_set - Adds an element to a hash table
  * @ht: The hash table
  * @key: The key of the datum
@@ -23,44 +10,42 @@ void free_ht_node(hash_node_t *hash_node)
 
 int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 {
-	hash_node_t *new_node = NULL, *this_node = NULL;
-	unsigned long int this_key_index;
+	unsigned long int index = key_index((const unsigned char *)key, ht->size);
+	hash_node_t *new_element, *element = ht->array[index];
 
-	if (!ht || !key || strlen(key) < 1)
+	if (key == NULL)
 		return (0);
-	/* Initialize the new node, return fail (0) if we can't malloc */
-	new_node = malloc(sizeof(hash_node_t));
-	if (new_node == NULL)
+
+	new_element = malloc(sizeof(hash_node_t) * 1);
+
+	if (!new_element)
 		return (0);
-	new_node->key = strdup(key);
-	new_node->value = strdup(value);
-	new_node->next = NULL;
-	/* Save the key index in memory so we don't waste time with calls */
-	this_key_index = key_index((const unsigned char *) key, ht->size);
-	this_node = ht->array[this_key_index];
-	/* Save the node in the spot if it's free, otherwise insert node */
-	if (this_node == NULL)
+	new_element->key = strdup(key);
+	new_element->value = strdup(value);
+	new_element->next = NULL;
+
+	if (element == NULL)
 	{
-		ht->array[this_key_index] = new_node;
+		ht->array[index] = new_element;
 		return (1);
 	}
 	else
 	{
-		while (this_node != NULL)
+		while (element)
 		{
-			if (strcmp(this_node->key, key) == 0)
+			if ((strcmp(ht->array[index]->key, new_element->key)) == 0)
 			{
-				free(this_node->value);
-				this_node->value = new_node->value;
-				free(new_node->value);
-				free(new_node->key);
-				free(new_node);
+				free(element->value);
+				element->value = strdup(value);
+				free(new_element->key);
+				free(new_element->value);
+				free(new_element);
 				return (1);
 			}
-			this_node = this_node->next;
+			element = element->next;
 		}
-		this_node->next = ht->array[this_key_index];
-		ht->array[this_key_index] = new_node;
+	new_element->next = ht->array[index];
+	ht->array[index] = new_element;
 	}
 	return (1);
 }
