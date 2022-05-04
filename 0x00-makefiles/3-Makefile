@@ -1,13 +1,24 @@
 # -*- MakeFile -*-
 
-all: school
+CC=gcc
+SRC=main.c school.c
+OBJ=$(patsubst %.c,%.o,$(SRC))
+NAME=school
+RM=rm
 
-school: main.o school.o
-	gcc main.o school.o -o school
+all: $(NAME)
 
-main.o: main.c
-	gcc -c main.c
+$(NAME): $(OBJ)
+	$(CC) $(OBJ) -o $(NAME)
 
-school.o: school.c
-	gcc -c school.c
+clean:
+	$(RM) -f *~ $(NAME)
 
+oclean:
+	$(RM) -f *.o
+
+fclean: clean oclean
+	$(info The repo has been fully cleaned)
+
+re: fclean all
+	$(info Fully rebuilt)
