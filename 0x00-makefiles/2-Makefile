@@ -10,6 +10,9 @@ all: $(NAME)
 $(NAME): $(OBJ)
 	$(CC) $(OBJ) -o $(NAME)
 
-%.o:%.c: $(SRC)
-	$(CC) -c $^ -o $@
+main.o: main.c
+	$(CC) -c main.c -o main.o
+
+school.o: school.c
+	$(CC) -c school.c -o school.o
 
