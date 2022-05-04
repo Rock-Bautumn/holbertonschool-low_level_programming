@@ -11,5 +11,5 @@ $(NAME): $(OBJ)
 	$(CC) $(OBJ) -o $(NAME)
 
 %.o:%.c: $(SRC)
-	$(CC) -c -o $@ $<
+	$(CC) -c -o $@ $^
 
