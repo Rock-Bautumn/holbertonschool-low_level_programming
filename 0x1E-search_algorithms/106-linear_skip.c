@@ -13,7 +13,7 @@ skiplist_t *linear_skip(skiplist_t *list, int value)
 
 	if (list == NULL)
 		return (NULL);
-	while (thisNode->n <= value)
+	while (thisNode->n < value)
 	{
 		if (thisNode->n == value)
 			return (thisNode);
@@ -21,7 +21,7 @@ skiplist_t *linear_skip(skiplist_t *list, int value)
 			break;
 		printf("Value checked at index [%lu] = [%d]\n",
 			thisNode->express->index, thisNode->express->n);
-		if (thisNode->express->n <= value && thisNode->express->index > 0)
+		if (thisNode->express->n < value && thisNode->express->index > 0)
 			thisNode = thisNode->express;
 		else
 			break;
