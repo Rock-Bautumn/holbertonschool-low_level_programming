@@ -128,8 +128,6 @@ int shash_table_set(shash_table_t *ht, const char *key, const char *value)
 		ht->stail = new_node;
 	}
 
-	shash_sorted_insert(ht, new_node);
-
 	if (ht->array[this_index] == NULL)
 		ht->array[this_index] = new_node;
 	else
@@ -144,12 +142,17 @@ int shash_table_set(shash_table_t *ht, const char *key, const char *value)
 				free(new_node->value);
 				free(new_node->key);
 				free(new_node);
-				return (1);
+				new_node = NULL;
+				break;
 			}
 		}
 		new_node->next = prev_head;
 		ht->array[this_index] = new_node;
 	}
+
+	if (new_node != NULL)
+		shash_sorted_insert(ht, new_node);
+
 	return (1);
 }
 
