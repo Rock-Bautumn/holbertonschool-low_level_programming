@@ -146,8 +146,11 @@ int shash_table_set(shash_table_t *ht, const char *key, const char *value)
 				break;
 			}
 		}
-		new_node->next = prev_head;
-		ht->array[this_index] = new_node;
+		if (new_node)
+		{
+			new_node->next = prev_head;
+			ht->array[this_index] = new_node;
+		}
 	}
 
 	if (new_node != NULL)
