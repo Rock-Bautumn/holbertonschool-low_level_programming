@@ -50,7 +50,7 @@ int rabs(int *array, int value, int left, int right)
 	mid = (left + right) / 2;
 	if (array[mid] == value)
 	{
-		while(array[mid-1] == value)
+		while (array[mid - 1] == value)
 			mid -= 1;
 		return (mid);
 	}
@@ -59,6 +59,14 @@ int rabs(int *array, int value, int left, int right)
 	return (rabs(array, value, left, mid));
 }
 
+/**
+ * exponential_search - Search for a value in a list in an
+ * exponential search way
+ * @array: The array to search through
+ * @size: The quantity of items in the array
+ * @value: The value to search for
+ * Return: The position/index of the array that contains the value
+*/
 
 int exponential_search(int *array, size_t size, int value)
 {
@@ -72,6 +80,7 @@ int exponential_search(int *array, size_t size, int value)
 		printf("Value checked array[%ld] = [%d]\n", bound, array[bound]);
 		bound *= 2;
 	}
-	printf("Value found between indexes [%ld] and [%ld]\n", bound / 2, MIN(bound, size - 1));
-	return (rabs(array, value, bound/2, MIN(bound, size - 1)));
+	printf("Value found between indexes [%ld] and [%ld]\n",
+		bound / 2, MIN(bound, size - 1));
+	return (rabs(array, value, bound / 2, MIN(bound, size - 1)));
 }
